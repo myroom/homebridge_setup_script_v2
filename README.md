@@ -1,1 +1,1 @@
-# homebridge
+# Скрипт установки Homebridge
