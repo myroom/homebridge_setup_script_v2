@@ -1,6 +1,6 @@
 # Скрипт установки Homebridge
 
-Итак, что же делает этот скрипт?
+### Что же делает этот скрипт?
 
 * Добавляет репозиторий nodejs 11.x
 * Ставит `nodejs` и `libavahi-compat-libdnssd-dev`
@@ -13,6 +13,16 @@
 
 Теперь даже при перезагрузке homebridge с кривым конфигом, Вы сможете восстановить его работоспособность используя веб-интерфейс.
 
-Процесс установки займет минут 10, в итоге Вы получите работоспособный homebridge и его веб-морду на порту '8080'.
+Процесс установки займет минут 10, в итоге Вы получите работоспособный homebridge и его веб-морду [http://localhost:8080](http://localhost:8080)
+
+### Установка
+
+
+```sh
+$ sudo apt-get install git
+$ git clone https://github.com/myroom/homebridge_setup_script.git
+$ cd homebridge_setup_script
+$ sudo bash ./install.sh
+```
 
 Если не запускается, надо скопировать еще раз файл config.json
