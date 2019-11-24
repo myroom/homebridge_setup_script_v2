@@ -20,7 +20,7 @@
 
 ```sh
 $ sudo apt-get install git
-$ git clone https://github.com/myroom/homebridge_setup_script.git
+$ git clone https://github.com/myroom/homebridge_setup_script_v2.git
 $ cd homebridge_setup_script
 $ sudo bash ./install.sh
 ```
