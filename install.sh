@@ -42,6 +42,7 @@ KillMode=process
 WantedBy=multi-user.target
 EOL
 
+[Autostart]
 sudo systemctl daemon-reload
 sudo systemctl enable homebridge
 sudo systemctl start homebridge
