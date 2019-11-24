@@ -2,8 +2,9 @@
 
 curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
 sudo apt install -y nodejs libavahi-compat-libdnssd-dev
-#[ ! -d ~/.homebridge ] && sudo mkdir ~/.homebridge && sudo cp ./config.json ~/.homebridge
-mkdir ~/.homebridge && cp ./config.json ~/.homebridge
+if ! [ -d ~/.homebridge ]; then 
+sudo mkdir ~/.homebridge && sudo cp ./config.json ~/.homebridge
+fi
 
 sudo npm i -g --unsafe-perm homebridge homebridge-config-ui-x
 
@@ -26,27 +27,27 @@ AmbientCapabilities=CAP_NET_RAW
 WantedBy=multi-user.target
 EOL
 
-sudo bash -c "cat > /etc/systemd/system/homebridge-config-ui-x.service" << EOL
-[Unit]
-Description=Node.js HomeKit Server 
-After=syslog.target network-online.target
+#sudo bash -c "cat > /etc/systemd/system/homebridge-config-ui-x.service" << EOL
+#[Unit]
+#Description=Node.js HomeKit Server 
+#After=syslog.target network-online.target
 
-[Service]
-Type=simple
-User=$USER
-ExecStart=$(which homebridge) -U /$USER/.homebridge -I 
-Restart=on-failure
-RestartSec=3
-KillMode=process
+#[Service]
+#Type=simple
+#User=$USER
+#ExecStart=$(which homebridge) -U /$USER/.homebridge -I 
+#Restart=on-failure
+#RestartSec=3
+#KillMode=process
 
-[Install]
-WantedBy=multi-user.target
-EOL
+#[Install]
+#WantedBy=multi-user.target
+#EOL
 
 sudo systemctl daemon-reload
 
 sudo systemctl enable homebridge
 sudo systemctl start homebridge
 
-sudo systemctl enable homebridge-config-ui-x
-sudo systemctl start homebridge-config-ui-x
+#sudo systemctl enable homebridge-config-ui-x
+#sudo systemctl start homebridge-config-ui-x
