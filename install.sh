@@ -3,10 +3,11 @@
 curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
 sudo apt install -y nodejs libavahi-compat-libdnssd-dev
 if ! [ -d ~/.homebridge ]; then 
-sudo mkdir ~/.homebridge && sudo cp ./config.json ~/.homebridge
+mkdir ~/.homebridge
+cp ./config.json ~/.homebridge 
 fi
 
-sudo npm i -g --unsafe-perm homebridge-config-ui-x
+sudo npm i -g --unsafe-perm homebridge homebridge-config-ui-x
 
 sudo bash -c "cat > /etc/systemd/system/homebridge.service" << EOL
 [Unit]
@@ -16,7 +17,8 @@ After=syslog.target network-online.target
 [Service]
 Type=simple
 User=$USER
-ExecStart=$(which homebridge-config-ui-x) -U /$USER/.homebridge -I
+#ExecStart=$(which homebridge-config-ui-x) -U /$USER/.homebridge -I
+ExecStart=$(which homebridge-config-ui-x) -U ~/.homebridge -I
 Restart=on-failure
 RestartSec=3
 KillMode=process
