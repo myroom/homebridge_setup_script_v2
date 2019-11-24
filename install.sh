@@ -27,10 +27,6 @@ After=syslog.target network-online.target
 [Service]
 Type=simple
 User=$USER
-#EnvironmentFile=/etc/default/homebridge
-#ExecStart=$(which homebridge-config-ui-x) -U /$USER/.homebridge -I
-#ExecStart=$(which homebridge-config-ui-x) -U $HOME/.homebridge -I
-#ExecStart=$(which homebridge) \$HOMEBRIDGE_OPTS
 ExecStart=$(which homebridge) -U ~/.homebridge -I
 Restart=on-failure
 RestartSec=3
