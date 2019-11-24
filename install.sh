@@ -6,7 +6,7 @@ if ! [ -d ~/.homebridge ]; then
 sudo mkdir ~/.homebridge && sudo cp ./config.json ~/.homebridge
 fi
 
-sudo npm i -g --unsafe-perm homebridge homebridge-config-ui-x
+sudo npm i -g --unsafe-perm homebridge-config-ui-x
 
 sudo bash -c "cat > /etc/systemd/system/homebridge.service" << EOL
 [Unit]
