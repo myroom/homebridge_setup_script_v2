@@ -2,7 +2,8 @@
 
 curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
 sudo apt install -y nodejs libavahi-compat-libdnssd-dev
-sudo [ ! -d ~/.homebridge ] && mkdir ~/.homebridge && cp ./config.json ~/.homebridge
+#[ ! -d ~/.homebridge ] && sudo mkdir ~/.homebridge && sudo cp ./config.json ~/.homebridge
+sudo mkdir ~/.homebridge && sudo cp ./config.json ~/.homebridge
 
 sudo npm i -g --unsafe-perm homebridge homebridge-config-ui-x
 
