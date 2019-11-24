@@ -15,7 +15,7 @@
 			"sudo": true,
 			"temp": "/sys/class/thermal/thermal_zone0/temp",
 			"standalone": true,
-      		"restart": "sudo -n systemctl restart homebridge homebridge-config-ui-x",
+      			"restart": "sudo -n systemctl restart homebridge",
 			"log": {
 				"method": "systemd",
 				"service": "homebridge"
