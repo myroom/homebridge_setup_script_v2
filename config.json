@@ -9,17 +9,19 @@
 	],
 	"platforms": [
 		{
-			"platform": "config",
-			"name": "Config",
-			"port": 8080,
-			"sudo": true,
-			"temp": "/sys/class/thermal/thermal_zone0/temp",
-			"standalone": true,
-      			"restart": "sudo -n systemctl restart homebridge",
-			"log": {
-				"method": "systemd",
-				"service": "homebridge"
-			}
-		}
+		    "platform": "config",
+		    "name": "Config",
+		    "port": 8080,
+		    "auth": "form",
+		    "theme": "teal",
+		    "restart": "sudo -n systemctl restart homebridge",
+		    "temp": "/sys/class/thermal/thermal_zone0/temp",
+		    "tempUnits": "c",
+		    "sudo": true,
+		    "log": {
+			"method": "systemd",
+			"service": "homebridge"
+           	    }
+        	}
 	]
 }
