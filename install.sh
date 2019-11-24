@@ -1,24 +1,37 @@
 #!/bin/bash
 
-curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
-sudo apt install -y nodejs libavahi-compat-libdnssd-dev
+# Update system
+sudo apt-get update
+sudo apt-get upgrade
+
+#Install Homebridge
+sudo npm install -g --unsafe-perm homebridge
 if ! [ -d ~/.homebridge ]; then 
 mkdir ~/.homebridge
 cp ./config.json ~/.homebridge 
 fi
 
-sudo npm i -g --unsafe-perm homebridge homebridge-config-ui-x
+#Install Node.js
+curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+sudo apt install -y nodejs libavahi-compat-libdnssd-dev
 
-sudo bash -c "cat > /etc/systemd/system/homebridge.service" << EOL
+#Install homebridge-config-ui-x
+sudo npm install -g --unsafe-perm homebridge homebridge-config-ui-x
+
+#Autostart homebridge
+sudo cat >/etc/systemd/system/homebridge.service <<EOL
 [Unit]
-Description=Homebridge Config UI X
+Description=Homebridge
 After=syslog.target network-online.target
 
 [Service]
 Type=simple
 User=$USER
+#EnvironmentFile=/etc/default/homebridge
 #ExecStart=$(which homebridge-config-ui-x) -U /$USER/.homebridge -I
-ExecStart=$(which homebridge-config-ui-x) -U ~/.homebridge -I
+#ExecStart=$(which homebridge-config-ui-x) -U $HOME/.homebridge -I
+#ExecStart=$(which homebridge) \$HOMEBRIDGE_OPTS
+ExecStart=$(which homebridge) -U ~/.homebridge -I
 Restart=on-failure
 RestartSec=3
 KillMode=process
@@ -29,28 +42,8 @@ AmbientCapabilities=CAP_NET_RAW
 WantedBy=multi-user.target
 EOL
 
-
-#sudo bash -c "cat > /etc/systemd/system/homebridge-config-ui-x.service" << EOL
-#[Unit]
-#Description=Node.js HomeKit Server 
-#After=syslog.target network-online.target
-
-#[Service]
-#Type=simple
-#User=$USER
-#ExecStart=$(which homebridge) -U /$USER/.homebridge -I 
-#Restart=on-failure
-#RestartSec=3
-#KillMode=process
-
-#[Install]
-#WantedBy=multi-user.target
-#EOL
-
+#Restart demon & start homebridge
 sudo systemctl daemon-reload
-
 sudo systemctl enable homebridge
 sudo systemctl start homebridge
 
-#sudo systemctl enable homebridge-config-ui-x
-#sudo systemctl start homebridge-config-ui-x
