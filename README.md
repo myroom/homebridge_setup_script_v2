@@ -2,7 +2,7 @@
 
 ### Образ для Rapsberry Pi 
 
-Скачать образ Raspbian Buster Lite можно по этой ссылке [https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/)
+Скачать образ **Raspbian Buster Lite** можно по этой ссылке [https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/)
 
 ### Что же делает этот скрипт?
 
