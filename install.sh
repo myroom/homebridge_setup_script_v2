@@ -39,6 +39,6 @@ sudo systemctl daemon-reload
 sudo systemctl enable homebridge
 sudo systemctl start homebridge
 
-#Delete
+#Delete sources
 sudo rm -r /home/$USER/homebridge_setup_script_v2
 
