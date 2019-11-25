@@ -18,7 +18,7 @@
 ```sh
 $ sudo apt-get -y install git
 $ git clone https://github.com/myroom/homebridge_setup_script_v2.git
-$ cd homebridge_setup_script_v2 && sudo bash ./install.sh
+$ cd homebridge_setup_script_v2 && bash ./install.sh
 ```
 
 Если не запускается, надо скопировать еще раз файл config.json
