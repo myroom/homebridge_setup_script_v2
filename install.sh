@@ -8,7 +8,7 @@ sudo apt-get upgrade
 sudo npm install -g --unsafe-perm homebridge
 if ! [ -d ~/.homebridge ]; then 
 mkdir ~/.homebridge
-cp ./config.json ~/.homebridge/ 
+cp config.json ~/.homebridge 
 fi
 
 #Install Node.js
