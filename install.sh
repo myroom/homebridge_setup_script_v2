@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Update system
-sudo apt-get update
-sudo apt-get upgrade
-
 #Install Homebridge
 sudo npm install -g --unsafe-perm homebridge
 if ! [ -d ~/.homebridge ]; then 
