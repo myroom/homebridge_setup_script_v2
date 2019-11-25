@@ -3,8 +3,8 @@
 #Install Homebridge
 sudo npm install -g --unsafe-perm homebridge
 if ! [ -d /home/pi/.homebridge ]; then 	
-mkdir /home/pi/.homebridge
-cp config.json /home/pi/.homebridge/ 
+mkdir /home/$USER/.homebridge
+cp config.json /home/$USER/.homebridge/ 
 fi
 
 #Install Node.js
