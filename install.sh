@@ -15,15 +15,15 @@ sudo apt install -y nodejs libavahi-compat-libdnssd-dev
 sudo npm install -g --unsafe-perm homebridge homebridge-config-ui-x
 
 #Autostart homebridge
-sudo cat >/etc/systemd/system/homebridge.service <<EOL
+sudo bash -c "cat > /etc/systemd/system/homebridge.service" << EOL
 [Unit]
 Description=Homebridge
 After=syslog.target network-online.target
 
 [Service]
 Type=simple
-User=pi
-ExecStart=$(which homebridge) -U home/pi/.homebridge -I
+User=$USER
+ExecStart=$(which homebridge) -U home/$USER/.homebridge -I
 Restart=on-failure
 RestartSec=3
 KillMode=process
